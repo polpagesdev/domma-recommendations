@@ -1,15 +1,5 @@
 // Type imports
-import { QuizQuestion } from "../types/QuizQuestion";
-
-type NavButtonsProps = {
-  question: QuizQuestion;
-  selectedOptions: number[];
-  currentQuestionIndex: number;
-  handleNext: (questionId: number, options: number[]) => void;
-  handlePrevious: (questionId: number, options: number[]) => void;
-  name: string;
-  email: string;
-};
+import { NavButtonsProps } from "../types/NavButtonProps";
 
 const NavButtons = (props: NavButtonsProps) => {
   // Destructure the props for better readability

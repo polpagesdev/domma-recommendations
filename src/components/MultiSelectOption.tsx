@@ -1,11 +1,5 @@
 // Type imports
-import { QuizQuestion } from "../types/QuizQuestion";
-
-type MultiSelectOptionProps = {
-  question: QuizQuestion;
-  onSelect: (questionId: number, type: string, option: number) => void;
-  selectedOptions: number[];
-};
+import { MultiSelectOptionProps } from "../types/MultiSelectOptionProps";
 
 const MultiSelectOption = (props: MultiSelectOptionProps) => {
   // Destructure the props for better readability
@@ -14,7 +8,7 @@ const MultiSelectOption = (props: MultiSelectOptionProps) => {
   return (
     <div className="flex flex-col gap-4">
       {/* Map over each option and display a card with a checkbox button */}
-      {question.options?.map((option) => (
+      {question.options?.map((option: { key: number; label: string }) => (
         <label
           className="rounded bg-slate-200 hover:bg-slate-300 transition-all px-4 py-2 flex items-center justify-start cursor-pointer"
           key={option.key}

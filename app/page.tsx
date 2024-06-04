@@ -14,7 +14,14 @@ import { Product } from "@/src/types/Product";
 export default function Home() {
   const [completed, setCompleted] = useState<boolean>(false);
   const [recommendedProducts, setRecommendedProducts] = useState([]);
+  const [answers, setAnswers] = useState<QuizAnswers>({});
   const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
+
+  const nextQuestion = () => {
+    setCurrentQuestionIndex((prev: number) => prev + 1);
+  };
 
   /**
    * This function is called when the user completes the quiz.
@@ -35,11 +42,20 @@ export default function Home() {
     setCompleted(true);
   };
 
+  const resetQuiz = () => {
+    setCompleted(false);
+    setRecommendedProducts([]);
+    setName("");
+    setEmail("");
+    setCurrentQuestionIndex(0);
+    setAnswers({});
+  };
+
   // If the quiz is completed, display the recommended products
   if (completed) {
     return (
       <div className="flex flex-col items-center justify-center h-screen">
-        <div className="absolute mx-auto left-0 right-0 max-w-[768px] flex flex-col items-center justify-center">
+        <div className="max-w-[768px] flex flex-col items-center justify-center">
           <h1 className="text-2xl font-bold mb-6 text-center">
             {name}, aquí tienes un plan infalible para dominar tus síntomas,
             recomendado por nuestra especialista Belén👩‍⚕️
@@ -62,10 +78,16 @@ export default function Home() {
           <div className="flex flex-row items-center justify-center gap-6 p-4">
             {/* Map over the recommended products and display them */}
             {recommendedProducts.map((product: Product, index: number) => (
-              <ProductCard product={product} index={index} />
+              <ProductCard product={product} index={index} key={index} />
             ))}
           </div>
         </div>
+        <button
+          onClick={resetQuiz}
+          className="text-sm bg-transparent border-b-[1px] border-transparent hover:border-b-[1px] hover:border-primary-200 text-primary-200 mt-12"
+        >
+          Volver a empezar
+        </button>
       </div>
     );
   }
@@ -78,6 +100,14 @@ export default function Home() {
         onComplete={handleComplete}
         name={name}
         setName={setName}
+        currentQuestionIndex={currentQuestionIndex}
+        setCurrentQuestionIndex={setCurrentQuestionIndex}
+        answers={answers}
+        setAnswers={setAnswers}
+        email={email}
+        setEmail={setEmail}
+        nextQuestion={nextQuestion}
+        resetQuiz={resetQuiz}
       />
     </div>
   );

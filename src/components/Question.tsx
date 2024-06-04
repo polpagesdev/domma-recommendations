@@ -20,6 +20,7 @@ const Question = (props: QuestionProps) => {
     setName,
     email,
     setEmail,
+    resetQuiz,
   } = props;
 
   const renderOptions = (question: QuizQuestion) => {
@@ -93,6 +94,12 @@ const Question = (props: QuestionProps) => {
         name={name}
         email={email}
       />
+      <button
+        onClick={resetQuiz}
+        className="text-sm bg-transparent border-b-[1px] border-transparent hover:border-b-[1px] hover:border-primary-200 text-primary-200 mt-12"
+      >
+        Volver a empezar
+      </button>
     </div>
   );
 };

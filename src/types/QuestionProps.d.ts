@@ -13,4 +13,5 @@ export type QuestionProps = {
   setName: (name: string) => void;
   email: string;
   setEmail: (email: string) => void;
+  resetQuiz: () => void;
 };

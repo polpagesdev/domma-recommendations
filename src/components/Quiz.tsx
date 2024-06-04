@@ -1,25 +1,25 @@
-// React imports
-import { useState } from "react";
 // Component imports
 import Question from "./Question";
 // Type imports
-import { QuizQuestion } from "../types/QuizQuestion";
+import { QuizProps } from "../types/QuizProps";
 import { QuizAnswers } from "../types/QuizAnswers";
-
-type QuizProps = {
-  questions: QuizQuestion[];
-  onComplete: (answers: QuizAnswers) => void;
-  name: string;
-  setName: (name: string) => void;
-};
 
 const Quiz = (props: QuizProps) => {
   // Destructure the props for better readability
-  const { questions, onComplete, name, setName } = props;
-
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
-  const [answers, setAnswers] = useState<QuizAnswers>({});
-  const [email, setEmail] = useState<string>("");
+  const {
+    questions,
+    onComplete,
+    name,
+    setName,
+    currentQuestionIndex,
+    setCurrentQuestionIndex,
+    answers,
+    setAnswers,
+    email,
+    setEmail,
+    nextQuestion,
+    resetQuiz,
+  } = props;
 
   // Set the current question index with debounce to avoid flickering
   const setDebouncedIndex = (index: number) => {
@@ -96,7 +96,7 @@ const Quiz = (props: QuizProps) => {
       delete answers[9];
     }
     // Default flow
-    setCurrentQuestionIndex((prev) => prev + 1);
+    nextQuestion();
   };
 
   const handlePrevious = (questionId: number, options: number[]) => {
@@ -147,13 +147,13 @@ const Quiz = (props: QuizProps) => {
       return;
     }
     // Default flow
-    setCurrentQuestionIndex((prev) => prev - 1);
+    nextQuestion();
   };
 
   const onSelect = (questionId: number, type: string, option: number) => {
     // Add the option directly as a new array if it's a single-select question
     if (type === "single-select") {
-      setAnswers((prev) => ({
+      setAnswers((prev: QuizAnswers) => ({
         ...prev,
         [questionId]: [Number(option)],
       }));
@@ -163,14 +163,14 @@ const Quiz = (props: QuizProps) => {
     if (type === "multi-select") {
       if (answers[questionId] && answers[questionId].length > 0) {
         const newOptions = answers[questionId].includes(option)
-          ? answers[questionId].filter((item) => item !== option)
+          ? answers[questionId].filter((item: any) => item !== option)
           : [...answers[questionId], option];
-        setAnswers((prev) => ({
+        setAnswers((prev: QuizAnswers) => ({
           ...prev,
           [questionId]: newOptions,
         }));
       } else {
-        setAnswers((prev) => ({
+        setAnswers((prev: QuizAnswers) => ({
           ...prev,
           [questionId]: [
             ...((prev[questionId] as number[]) || []),
@@ -195,6 +195,7 @@ const Quiz = (props: QuizProps) => {
         setName={setName}
         email={email}
         setEmail={setEmail}
+        resetQuiz={resetQuiz}
       />
     </div>
   );
