@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Sistema de Recomendación de Productos DOMMA
 
-## Getting Started
+Este proyecto es una aplicación de sistema de recomendación de productos desarrollada con Next.js 14 (utilizando el APP Router), TypeScript y TailwindCSS. Su objetivo es ofrecer recomendaciones de productos basadas en la sintomatología indicada por las usuarias de Domma.
 
-First, run the development server:
+## Requisitos Previos
 
-```bash
+Antes de comenzar, asegúrate de tener instalados los siguientes programas:
+
+- Node.js (versión 14 o superior)
+- npm (versión 6 o superior) o yarn
+
+## Instalación
+
+Sigue estos pasos para instalar y configurar el proyecto en tu máquina local:
+
+1. **Clona el repositorio:**
+
+   ```bash
+   git clone https://github.com/polpagesdev/domma-recommendations.git
+   cd domma-recommendations
+   ```
+
+2. **Instala las dependencias:**
+
+    Usando npm:
+    ```
+    npm install
+    ```
+    O usando yarn:
+    ```
+    yarn install
+    ````
+
+## Configuración
+
+Si tu proyecto requiere configuraciones adicionales (por ejemplo, variables de entorno), asegúrate de crear un archivo .env en la raíz del proyecto con las configuraciones necesarias. Puedes utilizar el archivo .env.example como plantilla.
+
+## Puesta en Marcha
+
+Para iniciar el proyecto en modo de desarrollo, utiliza el siguiente comando:
+
+Usando npm:
+```
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+O usando yarn:
+```
+yarn dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+La aplicación estará disponible en http://localhost:3000.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Estructura del Proyecto
 
-## Learn More
+A continuación se muestra una breve descripción de la estructura del proyecto:
+```
+/domma-recommendations
+|-- /public
+|   |-- /images           # Imágenes y activos públicos
+|-- /src
+|   |-- /components       # Componentes
+|   |-- /app              # App router de Next.js
+|       |-- /api          # Rutas de API
+|       |-- page          # Página principal de la aplicación
+|   |-- /types            # Definiciones de tipos (TypeScript)
+|   |-- /utils            # Definiciones de tipos (TypeScript)
+|       |-- questions     # Datos de las preguntas
+|       |-- products      # Datos de los productos
+|-- package.json          # Dependencias y scripts del proyecto
+|-- tailwind.config.js    # Configuración de TailwindCSS
+|-- next.config.js        # Configuración de Next.js
+|-- tsconfig.json         # Configuración de TypeScript
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Scripts Disponibles
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+En el archivo **package.json**, se definen varios scripts útiles para el desarrollo y despliegue del proyecto:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **dev:** Inicia la aplicación en modo desarrollo.
+- **build:** Compila la aplicación para producción.
+- **start:** Inicia la aplicación en modo producción.
+- **lint:** Ejecuta el linter para verificar el código.
