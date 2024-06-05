@@ -1,5 +1,9 @@
-// Type imports
-import { TextInputOptionProps } from "../types/TextInputOptionProps";
+export type TextInputOptionProps = {
+  placeholder: string;
+  value: string;
+  setValue: (arg: string) => void;
+  type: string;
+};
 
 const TextInputOption = (props: TextInputOptionProps) => {
   // Destructure the props for better readability

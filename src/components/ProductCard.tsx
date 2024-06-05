@@ -3,13 +3,15 @@ import Image from "next/image";
 // Component imports
 import { Product } from "../types/Product";
 
-const ProductCard = ({
-  product,
-  index,
-}: {
+type ProductCardProps = {
   product: Product;
   index: number;
-}) => {
+};
+
+const ProductCard = (props: ProductCardProps) => {
+  // Destructure the props for better readability
+  const { product, index } = props;
+
   return (
     <div
       key={index}

@@ -1,11 +1,24 @@
 // Types
-import { QuestionProps } from "../types/QuestionProps";
 import { QuizQuestion } from "../types/QuizQuestion";
 // Components
 import MultiSelectOption from "./MultiSelectOption";
 import NavButtons from "./NavButtons";
 import SingleSelectOption from "./SingleSelectOption";
 import TextInputOption from "./TextInputOption";
+
+export type QuestionProps = {
+  question: QuizQuestion;
+  onSelect: (questionId: number, type: string, option: number) => void;
+  selectedOptions: number[];
+  currentQuestionIndex: number;
+  handlePrevious: (questionId: number, options: number[]) => void;
+  handleNext: (questionId: number, options: number[]) => void;
+  name: string;
+  setName: (name: string) => void;
+  email: string;
+  setEmail: (email: string) => void;
+  resetQuiz: () => void;
+};
 
 const Question = (props: QuestionProps) => {
   // Destructure props for better readability

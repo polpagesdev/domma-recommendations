@@ -1,5 +1,11 @@
 // Type imports
-import { SingleSelectOptionProps } from "../types/SingleSelectOptionProps";
+import { QuizQuestion } from "../types/QuizQuestion";
+
+export type SingleSelectOptionProps = {
+  question: QuizQuestion;
+  onSelect: (questionId: number, type: string, option: number) => void;
+  selectedOptions: number;
+};
 
 const SingleSelectOption = (props: SingleSelectOptionProps) => {
   // Destructure the props for better readability

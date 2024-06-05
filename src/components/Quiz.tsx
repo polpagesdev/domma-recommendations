@@ -1,8 +1,24 @@
 // Component imports
 import Question from "./Question";
 // Type imports
-import { QuizProps } from "../types/QuizProps";
 import { QuizAnswers } from "../types/QuizAnswers";
+import { QuizQuestion } from "../types/QuizQuestion";
+
+export type QuizProps = {
+  questions: QuizQuestion[];
+  onComplete: (answers: QuizAnswers) => void;
+  name: string;
+  setName: (name: string) => void;
+  currentQuestionIndex: number;
+  setCurrentQuestionIndex: (index: number) => void;
+  answers: QuizAnswers;
+  setAnswers: React.Dispatch<React.SetStateAction<QuizAnswers>>;
+  email: string;
+  setEmail: (email: string) => void;
+  nextQuestion: () => void;
+  prevQuestion: () => void;
+  resetQuiz: () => void;
+};
 
 const Quiz = (props: QuizProps) => {
   // Destructure the props for better readability
@@ -18,6 +34,7 @@ const Quiz = (props: QuizProps) => {
     email,
     setEmail,
     nextQuestion,
+    prevQuestion,
     resetQuiz,
   } = props;
 
@@ -147,7 +164,7 @@ const Quiz = (props: QuizProps) => {
       return;
     }
     // Default flow
-    nextQuestion();
+    prevQuestion();
   };
 
   const onSelect = (questionId: number, type: string, option: number) => {

@@ -12,6 +12,7 @@ import { QuizAnswers } from "@/src/types/QuizAnswers";
 import { Product } from "@/src/types/Product";
 
 export default function Home() {
+  // Global state variables
   const [completed, setCompleted] = useState<boolean>(false);
   const [recommendedProducts, setRecommendedProducts] = useState([]);
   const [answers, setAnswers] = useState<QuizAnswers>({});
@@ -19,8 +20,13 @@ export default function Home() {
   const [email, setEmail] = useState<string>("");
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
 
+  // Default handler functions to move to the next or previous question
   const nextQuestion = () => {
     setCurrentQuestionIndex((prev: number) => prev + 1);
+  };
+
+  const prevQuestion = () => {
+    setCurrentQuestionIndex((prev: number) => prev - 1);
   };
 
   /**
@@ -107,6 +113,7 @@ export default function Home() {
         email={email}
         setEmail={setEmail}
         nextQuestion={nextQuestion}
+        prevQuestion={prevQuestion}
         resetQuiz={resetQuiz}
       />
     </div>

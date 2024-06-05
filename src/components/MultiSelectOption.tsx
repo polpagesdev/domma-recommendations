@@ -1,5 +1,11 @@
 // Type imports
-import { MultiSelectOptionProps } from "../types/MultiSelectOptionProps";
+import { QuizQuestion } from "../types/QuizQuestion";
+
+export type MultiSelectOptionProps = {
+  question: QuizQuestion;
+  onSelect: (questionId: number, type: string, option: number) => void;
+  selectedOptions: number[];
+};
 
 const MultiSelectOption = (props: MultiSelectOptionProps) => {
   // Destructure the props for better readability
