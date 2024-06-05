@@ -15,7 +15,7 @@ const TextInputOption = (props: TextInputOptionProps) => {
       placeholder={placeholder}
       value={value}
       onChange={(e) => setValue(e.target.value)}
-      className="max-w-[550px] w-[550px] border-b-[1px] border-primary-400 py-2 bg-transparent focus:outline-none focus:border-b-[1px] focus:border-transparent placeholder:text-primary-200 text-primary-200"
+      className="max-w-[550px] min-w-[250px] md:w-[550px] border-b-[1px] border-primary-400 py-2 bg-transparent focus:outline-none focus:border-b-[1px] focus:border-transparent placeholder:text-primary-200 text-primary-200 placeholder:text-sm md:placeholder:text-base"
     />
   );
 };

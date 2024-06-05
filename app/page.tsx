@@ -60,7 +60,7 @@ export default function Home() {
   // If the quiz is completed, display the recommended products
   if (completed) {
     return (
-      <div className="flex flex-col items-center justify-center h-screen">
+      <div className="flex flex-col mt-8 sm:mt-16 md:m-0 px-4 items-center justify-center h-auto md:h-screen">
         <div className="max-w-[768px] flex flex-col items-center justify-center">
           <h1 className="text-2xl font-bold mb-6 text-center">
             {name}, aquí tienes un plan infalible para dominar tus síntomas,
@@ -81,7 +81,7 @@ export default function Home() {
               indicados.
             </span>
           </h2>
-          <div className="flex flex-row items-center justify-center gap-6 p-4">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6 p-4">
             {/* Map over the recommended products and display them */}
             {recommendedProducts.map((product: Product, index: number) => (
               <ProductCard product={product} index={index} key={index} />
@@ -90,7 +90,7 @@ export default function Home() {
         </div>
         <button
           onClick={resetQuiz}
-          className="text-sm bg-transparent border-b-[1px] border-transparent hover:border-b-[1px] hover:border-primary-200 text-primary-200 mt-12"
+          className="text-sm bg-transparent border-b-[1px] border-transparent hover:border-b-[1px] hover:border-primary-200 text-primary-200 mt-12 mb-8"
         >
           Volver a empezar
         </button>

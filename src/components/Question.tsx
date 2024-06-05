@@ -82,7 +82,7 @@ const Question = (props: QuestionProps) => {
   };
 
   return (
-    <div className="absolute mx-auto left-0 right-0 max-w-[768px] flex flex-col items-center justify-center">
+    <div className="absolute mx-auto px-4 sm:px-6 left-0 right-0 max-w-[768px] flex flex-col items-center justify-center">
       {/* Display question title */}
       <h1 className="text-2xl font-bold mb-6 text-center">
         {/* Add 'name' to title only in welcome and goodbye messages */}
