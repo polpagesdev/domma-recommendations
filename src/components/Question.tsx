@@ -82,7 +82,7 @@ const Question = (props: QuestionProps) => {
   };
 
   return (
-    <div className="absolute mx-auto px-4 sm:px-6 left-0 right-0 max-w-[768px] flex flex-col items-center justify-center">
+    <div className="absolute mx-auto px-4 sm:px-6 left-0 right-0 top-0 my-6 md:my-0 md:top-auto max-w-[768px] flex flex-col items-center justify-center">
       {/* Display question title */}
       <h1 className="text-2xl font-bold mb-6 text-center">
         {/* Add 'name' to title only in welcome and goodbye messages */}
@@ -109,7 +109,7 @@ const Question = (props: QuestionProps) => {
       />
       <button
         onClick={resetQuiz}
-        className="text-sm bg-transparent border-b-[1px] border-transparent hover:border-b-[1px] hover:border-primary-200 text-primary-200 mt-12"
+        className="text-sm bg-transparent border-b-[1px] border-transparent hover:border-b-[1px] hover:border-primary-200 text-primary-200 mt-12 mb-8"
       >
         Volver a empezar
       </button>

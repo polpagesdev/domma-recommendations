@@ -100,7 +100,7 @@ export default function Home() {
 
   // If the quiz is not completed (by default), display the quiz
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
+    <div className="flex flex-col items-center justify-center mt-8 sm:mt-16 md:m-0 h-screen">
       <Quiz
         questions={quizQuestions}
         onComplete={handleComplete}
